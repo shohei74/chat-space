@@ -4,26 +4,36 @@
 
 * Database creation
 
-    1. Messagesテーブル
-        * id
-        * body
-        * image
-        * email(一意性制約)
-        * user_id(外部キー制約)
-        * group_id(外部キー制約)
+  1. Messagesテーブル
 
-    2. Usersテーブル
-        * id
-        * name(NOT NULL制約)
-        * email(NOT NULL制約、一意性制約)
-        * password(NOT NULL制約)
+    | Field | Type    | Null  | Unique | Foreign_key | Index|
+    | :----:| :----:  | :----:| :----: | :-------:| :----:|
+    | id    | integer | NO    |        |          |       |
+    | body  | text    | NO    |        |          |       |
+    | image | string  |       |        |          |       |
+    | user_id | integer  | NO |        | YES      |       |
+    | group_id | integer | NO |        | YES      |       |
 
-    3. Groupsテーブル
-        * id
-        * name(NOT NULL制約、一意性制約)
+  2. Usersテーブル
 
-    4. Relationsテーブル
-        * id
-        * user_id(外部キー制約)
-        * group_id(外部キー制約)
+    | Field | Type    | Null  | Unique| Foreign_key | Index |
+    | :----:| :----:  | :----:| :----:| :----------:| :----:|
+    | id    | integer | NO    |       |             |       |
+    | name  | string  | NO    |       |             |   YES |
+    | email | string  | NO    | YES   |             |       |
+    | password | string | NO  |       |             |       |
 
+  3. Groupsテーブル
+
+    | Field | Type    | Null  | Unique| Foreign_key | Index |
+    | :----:| :----:  | :----:| :----:| :----------:| :----:|
+    | id    | integer | NO    |       |             |       |
+    | name  | string  | NO    |       |             |   YES |
+
+ 4. Users_Groupsテーブル
+
+    | Field    | Type    | Null  | Unique| Foreign_key | Index |
+    | :----:   | :----:  | :----:| :----:| :----------:| :----:|
+    | id       | integer | NO    |       |             |       |
+    | user_id  | integer | NO    |       | YES         |       |
+    | group_id | integer | NO    |       | YES         |       |
