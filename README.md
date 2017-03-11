@@ -1,5 +1,6 @@
 
 * Ruby version
+- ruby 2.3.1
 
 * Database creation
 
