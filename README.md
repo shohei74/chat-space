@@ -30,7 +30,6 @@ Things you may want to cover:
     3. Groupsテーブル
         * id
         * name(NOT NULL制約、一意性制約)
-        * user_id(外部キー制約)
 
     4. Relationsテーブル
         * id
