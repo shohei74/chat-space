@@ -14,6 +14,9 @@
     | user_id | integer  | NO |        | YES      |       |
     | group_id | integer | NO |        | YES      |       |
 
+    belongs_to :user
+    belongs_to :group
+
   2. Usersテーブル
 
     | Field | Type    | Null  | Unique| Foreign_key | Index |
@@ -23,12 +26,18 @@
     | email | string  | NO    | YES   |             |       |
     | password | string | NO  |       |             |       |
 
+    has_many :messages
+    has_many :groups, through: :users_gruops
+
   3. Groupsテーブル
 
     | Field | Type    | Null  | Unique| Foreign_key | Index |
     | :----:| :----:  | :----:| :----:| :----------:| :----:|
     | id    | integer | NO    |       |             |       |
     | name  | string  | NO    |       |             |   YES |
+
+    has_many :messages
+    has_many :users,  through: :users_gruops
 
  4. Users_Groupsテーブル
 
@@ -37,3 +46,6 @@
     | id       | integer | NO    |       |             |       |
     | user_id  | integer | NO    |       | YES         |       |
     | group_id | integer | NO    |       | YES         |       |
+
+    belongs_to :user
+    belongs_to :group
