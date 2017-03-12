@@ -1,8 +1,7 @@
-
-* Ruby version
+## Ruby version
 - ruby 2.3.1
 
-* Database creation
+## Database creation
 
   1. Messagesテーブル
 
@@ -14,7 +13,7 @@
     | user_id | integer  | NO |        | YES      |       |
     | group_id | integer | NO |        | YES      |       |
 
-    belongs_to :user
+    belongs_to :user  
     belongs_to :group
 
   2. Usersテーブル
@@ -26,8 +25,8 @@
     | email | string  | NO    | YES   |             |       |
     | password | string | NO  |       |             |       |
 
-    has_many :messages
-    has_many :groups, through: :users_gruops
+    has_many :messages  
+    has_many :groups, through: :users_groups
 
   3. Groupsテーブル
 
@@ -36,10 +35,10 @@
     | id    | integer | NO    |       |             |       |
     | name  | string  | NO    |       |             |   YES |
 
-    has_many :messages
-    has_many :users,  through: :users_gruops
+    has_many :messages  
+    has_many :users,  through: :users_groups
 
- 4. Users_Groupsテーブル
+  4. Users_Groupsテーブル
 
     | Field    | Type    | Null  | Unique| Foreign_key | Index |
     | :----:   | :----:  | :----:| :----:| :----------:| :----:|
@@ -47,5 +46,5 @@
     | user_id  | integer | NO    |       | YES         |       |
     | group_id | integer | NO    |       | YES         |       |
 
-    belongs_to :user
+    belongs_to :user  
     belongs_to :group
